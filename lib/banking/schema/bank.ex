@@ -7,4 +7,10 @@ defmodule Banking.Schema.Bank do
 
     timestamps()
   end
+
+  def changeset(bank, attrs) do
+    bank
+    |> cast(attrs, [:name])
+    |> validate_required([:name])
+  end
 end
