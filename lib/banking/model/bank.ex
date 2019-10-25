@@ -14,7 +14,7 @@ defmodule Banking.Model.Bank do
     |> Repo.insert()
   end
 
-  def update_company(%Bank{} = bank, attrs) do
+  def update_bank(%Bank{} = bank, attrs) do
     bank
     |> Bank.changeset(attrs)
     |> Repo.update()
