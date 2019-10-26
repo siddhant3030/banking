@@ -1,9 +1,11 @@
 defmodule Banking.Schema.Bank do
   use Ecto.Schema
   import Ecto.Changeset
+  alias Banking.Schema.Branch
 
   schema "banks" do
     field :name, :string
+    has_many :branches, Branch
 
     timestamps()
   end

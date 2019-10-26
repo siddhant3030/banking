@@ -1,4 +1,5 @@
 defmodule Banking.Model.Bank do
+  import Ecto.Query
   alias Banking.Repo
   alias Banking.Schema.Bank
 
