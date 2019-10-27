@@ -4,6 +4,7 @@ defmodule BankingWeb.BankController do
   alias Banking.Model.Bank, as: BankModel
 
 
+
   def index(conn, _params) do
     banks = BankModel.list_banks()
     render(conn, "index.json", banks: banks)
@@ -16,6 +17,7 @@ defmodule BankingWeb.BankController do
       # |> put_resp_header("location", project_path(conn, :show, bank))
       |> render("show.json", bank: bank)
     end
+
   end
 
   def show(conn, %{"id" => id}) do
