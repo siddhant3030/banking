@@ -1,7 +1,7 @@
 {application,banking,
              [{applications,[kernel,stdlib,elixir,logger,runtime_tools,
                              gettext,jason,phoenix_pubsub,postgrex,ecto_sql,
-                             plug_cowboy,phoenix,phoenix_ecto]},
+                             plug_cowboy,phoenix,ja_serializer,phoenix_ecto]},
               {description,"banking"},
               {modules,['Elixir.Banking','Elixir.Banking.Application',
                         'Elixir.Banking.DataCase','Elixir.Banking.Model.Bank',

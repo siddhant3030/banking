@@ -7,7 +7,7 @@ defmodule BankingWeb.BankController do
 
   def index(conn, _params) do
     banks = BankModel.list_banks()
-    render(conn, "index.json", banks: banks)
+    render(conn, "index.json-api", data: banks)
   end
 
   def create(conn, %{"bank" => bank_params}) do
@@ -15,21 +15,21 @@ defmodule BankingWeb.BankController do
       conn
       |> put_status(:created)
       # |> put_resp_header("location", project_path(conn, :show, bank))
-      |> render("show.json", bank: bank)
+      |> render("show.json-api", data: bank)
     end
 
   end
 
   def show(conn, %{"id" => id}) do
     bank = BankModel.get_bank!(id)
-    render(conn, "show.json", bank: bank)
+    render(conn, "show.json-api", data: bank)
   end
 
   def update(conn, %{"id" => id, "bank" => bank_params}) do
     bank = BankModel.get_bank!(id)
 
     with {:ok, %Bank{} = bank} <- BankModel.update_bank(bank, bank_params) do
-      render(conn, "show.json", bank: bank)
+      render(conn, "show.json-api", data: bank)
     end
   end
 
