@@ -1,6 +1,7 @@
 defmodule Banking.Schema.Branch do
   use Ecto.Schema
   import Ecto.Changeset
+  alias Banking.Model.Bank, as: BankModel
   alias Banking.Schema.Bank
 
   @primary_key {:ifsc, :string, []}
@@ -17,8 +18,9 @@ defmodule Banking.Schema.Branch do
   end
 
   def changeset(branch, attrs) do
-    branch
+   branch
     |> cast(attrs, [:ifsc, :branch, :address, :city, :district, :state])
     |> validate_required([:ifsc, :branch, :address, :city, :district, :state])
+    |> put_assoc(:bank, attrs["bank"])
   end
 end

@@ -14,5 +14,6 @@ defmodule Banking.Schema.Bank do
     bank
     |> cast(attrs, [:name])
     |> validate_required([:name])
+    # |> Repo.preload(:branches)
   end
 end

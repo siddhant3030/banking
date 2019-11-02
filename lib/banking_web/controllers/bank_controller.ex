@@ -3,21 +3,18 @@ defmodule BankingWeb.BankController do
   alias Banking.Schema.Bank
   alias Banking.Model.Bank, as: BankModel
 
-
-
   def index(conn, _params) do
     banks = BankModel.list_banks()
     render(conn, "index.json-api", data: banks)
   end
 
   def create(conn, %{"bank" => bank_params}) do
-    with {:ok, %Bank{} = bank} <- BankModel.create_bank(bank_params) do
+    require IEx; IEx.pry
+     with {:ok, %Bank{} = bank} <- BankModel.create_bank(bank_params) do
       conn
       |> put_status(:created)
-      # |> put_resp_header("location", project_path(conn, :show, bank))
       |> render("show.json-api", data: bank)
     end
-
   end
 
   def show(conn, %{"id" => id}) do
@@ -41,3 +38,6 @@ defmodule BankingWeb.BankController do
     end
   end
 end
+
+
+

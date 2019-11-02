@@ -14,5 +14,6 @@ defmodule BankingWeb.Router do
     pipe_through :api
 
     resources "/banks", BankController
+    resources "/branches", BranchController
   end
 end
